@@ -1,5 +1,5 @@
 # Peek & Pop Example for iOS
-This project demonstrates how to Peek & Pop multiple views in a UITableViewCell or UICollectionViewCell while avoiding the rectangle behind rounded images.
+This project demonstrates how to Peek & Pop multiple views in a UITableViewCell or UICollectionViewCell while avoiding the rectangle behind rounded images.  Read all about it on the [Coffee Meets Bagel Engineering Blog](https://tech.coffeemeetsbagel.com/ios-how-to-peek-pop-multiple-views-in-a-uitableviewcell-or-uicollectionviewcell-603081007b32#.vu26dfw0j).
 
 ### UITableViewCell Example
 Before | After | Entire Row
