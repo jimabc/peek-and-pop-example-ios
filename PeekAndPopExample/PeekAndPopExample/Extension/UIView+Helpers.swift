@@ -12,13 +12,16 @@ import UIKit
 struct ViewAnchors: OptionSet {
     let rawValue: Int
     
-    static let bottom = ViewAnchors(rawValue: 1 << 0)
-    static let left   = ViewAnchors(rawValue: 1 << 1)
-    static let right  = ViewAnchors(rawValue: 1 << 2)
-    static let top    = ViewAnchors(rawValue: 1 << 3)
-    static let all       : ViewAnchors = [.bottom, .left, .right, .top]
-    static let horizontal: ViewAnchors = [.left, .right]
-    static let vertical  : ViewAnchors = [.bottom, .top]
+    static let bottom     = ViewAnchors(rawValue: 1 << 0)
+    static let leading    = ViewAnchors(rawValue: 1 << 1)
+    static let left       = ViewAnchors(rawValue: 1 << 2)
+    static let right      = ViewAnchors(rawValue: 1 << 3)
+    static let top        = ViewAnchors(rawValue: 1 << 4)
+    static let trailing   = ViewAnchors(rawValue: 1 << 5)
+    
+    static let all        : ViewAnchors = [.bottom, .leading, .top, .trailing]
+    static let horizontal : ViewAnchors = [.leading, .trailing]
+    static let vertical   : ViewAnchors = [.bottom, .top]
 }
 
 extension UIView {
@@ -27,6 +30,12 @@ extension UIView {
             bottomAnchor.constraint(
                 equalTo: view.bottomAnchor,
                 constant: insets.bottom).isActive = true
+        }
+        
+        if anchors.contains(.leading) {
+            leadingAnchor.constraint(
+                equalTo: view.leadingAnchor,
+                constant: -insets.left).isActive = true
         }
         
         if anchors.contains(.left) {
@@ -45,6 +54,12 @@ extension UIView {
             topAnchor.constraint(
                 equalTo: view.topAnchor,
                 constant: -insets.top).isActive = true
+        }
+        
+        if anchors.contains(.trailing) {
+            trailingAnchor.constraint(
+                equalTo: view.trailingAnchor,
+                constant: insets.right).isActive = true
         }
     }
     

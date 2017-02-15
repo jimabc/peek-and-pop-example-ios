@@ -90,11 +90,11 @@ class MessageDetailViewController: UIViewController {
         imageView.setContentCompressionResistancePriority(UILayoutPriorityRequired, for: .horizontal)
         imageView.setContentHuggingPriority(UILayoutPriorityRequired, for: .horizontal)
         
-        messageView.addAnchors(.left, to: imageView, insets: imageInsets)
+        messageView.addAnchors(.leading, to: imageView, insets: imageInsets)
         imageView.centerYAnchor.constraint(equalTo: bubbleView.centerYAnchor).isActive = true
         
         // Attach the bubble view
-        bubbleView.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 8).isActive = true
+        bubbleView.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8).isActive = true
         messageView.addAnchors(.vertical, to: bubbleView)
         view.addConstraints("H:[v]-(>=0)-|", views: ["v": bubbleView])
         
